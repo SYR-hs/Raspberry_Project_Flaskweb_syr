@@ -9,9 +9,9 @@ red_led = LED(21)                                          # 21번 핀에 연결
 def home():
    return render_template("index.html")                    # index.html 파일을 브라우저에 보여줌
 
-@app.route('/data', methods = ['POST'])                    # /data 주소로 POST 요청 왔을 때 실행
+@app.route('/data', methods = ['POST'])                    # /data 주소로 POST 요청이 오게되면, data()함수가 실행된다.
 def data():
-    data = request.form['led']                             # HTML 폼에서 'led' 값 가져오기
+    data = request.form['led']                             # 클라이언트가 전송한 'led' 값을 가져와 'data' 변수에 저장한다.
     
     if(data == 'on'):                                      # 값이 'ON'이면 LED 켜기
         red_led.on() 
