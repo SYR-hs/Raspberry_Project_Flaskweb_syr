@@ -33,34 +33,12 @@ Flask가 제공하는 request라는 객체(Object) 안에 들어있는 데이터
 
 
 ## Jinja2 에 대하여
+Jinja2는 텍스트 기반의 템플릿 언어로, HTML, XML, 또는 다른 마크업 형식의 문서를 생성하는 데 사용된다.
 
 플라스크에 내장된 템플릿 엔진(Template Engine)의 이름.
 
 보통 HTML은 정적이라서 한 번 작성하면 내용이 바뀌지 않지만, Jinja2를 사용하면 HTML 코드 안에 파이썬 변수나 제어문(if, for 등)을 심을 수 있다.
 
-파이썬에서 계산된 결과(예: 센서 값, LED 상태)를 웹 화면에 동적으로 보여주기 위해 사용한. 예를 들어 HTML에 {{ state }}라고 적어두면, Jinja2가 이를 파이썬에서 넘겨준 실제 값으로 바꿔치기해 줍니다.
-```
-from gpiozero import Buzzer, MCP3208
-import time
+파이썬에서 계산된 결과(예: 센서 값, LED 상태)를 웹 화면에 동적으로 보여주기 위해 사용한. 예를 들어 HTML에 {{ state }}라고 적어두면, Jinja2가 이를 파이썬에서 넘겨준 실제 값으로 바꿔치기해다.
 
-bz = Buzzer(18)
-gas = MCP3208(channel=0)
-
-try:
-    while 1:
-        gasValue = gas.value * 100
-        print(gasValue)
-        if gasValue >= 10:
-            bz.on()
-        else:
-            bz.off()
-
-        time.sleep(0.2)
-
-
-except KeyboardInterrupt:
-    pass
-
-bz.off()
-```
 
